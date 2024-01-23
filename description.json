@@ -1,0 +1,40 @@
+{
+  "title": "Krondor",
+  "covers": [1006082, 237838, 236511, 12353444, 11643894],
+  "key": "/works/OL554685W",
+  "authors": [
+    {
+      "author": { "key": "/authors/OL40784A" },
+      "type": { "key": "/type/author_role" }
+    }
+  ],
+  "type": { "key": "/type/work" },
+  "description": "Book One of The Riftwar Legacy. A novel created from a 1993 computer game, Betrayal at Krondor",
+  "subjects": [
+    "Fiction",
+    "Midkemia (Imaginary place)",
+    "Jimmy the Hand (Fictitious character)",
+    "Fantasy",
+    "Science Fiction & Fantasy",
+    "Fantasy fiction",
+    "Fiction, fantasy, general",
+    "Midkemia (imaginary place), fiction",
+    "Krondor (mikdemia: imaginary place), fiction",
+    "Traitors",
+    "Magicians",
+    "American Fantasy fiction",
+    "Computer Games"
+  ],
+  "location": "/works/OL554729W",
+  "subtitle": "The Betrayal",
+  "latest_revision": 4,
+  "revision": 4,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2009-12-08T05:07:53.839526"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2022-06-08T16:07:19.692617"
+  }
+}

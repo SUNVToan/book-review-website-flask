@@ -1,0 +1,87 @@
+{
+  "ISBN:0380795272": {
+    "url": "https://openlibrary.org/books/OL7435014M/Krondor_the_Betrayal",
+    "key": "/books/OL7435014M",
+    "title": "Krondor the Betrayal:",
+    "subtitle": "Book One of the Riftwar Legacy",
+    "authors": [
+      {
+        "url": "https://openlibrary.org/authors/OL40784A/Raymond_E._Feist",
+        "name": "Raymond E. Feist"
+      }
+    ],
+    "number_of_pages": 418,
+    "identifiers": {
+      "librarything": ["15637"],
+      "goodreads": ["92918"],
+      "isbn_10": ["0380795272"],
+      "isbn_13": ["9780380795277"],
+      "openlibrary": ["OL7435014M"]
+    },
+    "publishers": [{ "name": "Eos" }],
+    "publish_date": "October 5, 1999",
+    "subjects": [
+      { "name": "Fiction", "url": "https://openlibrary.org/subjects/fiction" },
+      {
+        "name": "Midkemia (Imaginary place)",
+        "url": "https://openlibrary.org/subjects/midkemia_(imaginary_place)"
+      },
+      {
+        "name": "Jimmy the Hand (Fictitious character)",
+        "url": "https://openlibrary.org/subjects/jimmy_the_hand_(fictitious_character)"
+      },
+      { "name": "Fantasy", "url": "https://openlibrary.org/subjects/fantasy" },
+      {
+        "name": "Science Fiction & Fantasy",
+        "url": "https://openlibrary.org/subjects/science_fiction_&_fantasy"
+      },
+      {
+        "name": "Fantasy fiction",
+        "url": "https://openlibrary.org/subjects/fantasy_fiction"
+      },
+      {
+        "name": "Fiction, fantasy, general",
+        "url": "https://openlibrary.org/subjects/fiction,_fantasy,_general"
+      },
+      {
+        "name": "Midkemia (imaginary place), fiction",
+        "url": "https://openlibrary.org/subjects/midkemia_(imaginary_place),_fiction"
+      },
+      {
+        "name": "Krondor (mikdemia: imaginary place), fiction",
+        "url": "https://openlibrary.org/subjects/krondor_(mikdemia:_imaginary_place),_fiction"
+      },
+      {
+        "name": "Traitors",
+        "url": "https://openlibrary.org/subjects/traitors"
+      },
+      {
+        "name": "Magicians",
+        "url": "https://openlibrary.org/subjects/magicians"
+      },
+      {
+        "name": "American Fantasy fiction",
+        "url": "https://openlibrary.org/subjects/american_fantasy_fiction"
+      },
+      {
+        "name": "Computer Games",
+        "url": "https://openlibrary.org/subjects/computer_games"
+      }
+    ],
+    "excerpts": [
+      { "text": "The fire crackled.", "comment": "", "first_sentence": true }
+    ],
+    "ebooks": [
+      {
+        "preview_url": "https://archive.org/details/krondorbetrayal00raym",
+        "availability": "restricted",
+        "formats": {}
+      }
+    ],
+    "cover": {
+      "small": "https://covers.openlibrary.org/b/id/236511-S.jpg",
+      "medium": "https://covers.openlibrary.org/b/id/236511-M.jpg",
+      "large": "https://covers.openlibrary.org/b/id/236511-L.jpg"
+    }
+  }
+}

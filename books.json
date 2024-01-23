@@ -1,0 +1,40 @@
+{
+  "ISBN:0380795272": {
+    "bib_key": "ISBN:0380795272",
+    "info_url": "https://openlibrary.org/books/OL7435014M/Krondor_the_Betrayal",
+    "preview": "restricted",
+    "preview_url": "https://archive.org/details/krondorbetrayal00raym",
+    "thumbnail_url": "https://covers.openlibrary.org/b/id/236511-S.jpg",
+    "details": {
+      "publishers": ["Eos"],
+      "identifiers": { "librarything": ["15637"], "goodreads": ["92918"] },
+      "subtitle": "Book One of the Riftwar Legacy",
+      "series": ["Riftwar Legacy (1)"],
+      "covers": [236511],
+      "key": "/books/OL7435014M",
+      "authors": [{ "key": "/authors/OL40784A", "name": "Raymond E. Feist" }],
+      "ocaid": "krondorbetrayal00raym",
+      "isbn_13": ["9780380795277"],
+      "classifications": {},
+      "source_records": ["ia:krondorbetrayal00feis_877", "bwb:9780380795277"],
+      "title": "Krondor the Betrayal:",
+      "number_of_pages": 418,
+      "languages": [{ "key": "/languages/eng" }],
+      "isbn_10": ["0380795272"],
+      "publish_date": "October 5, 1999",
+      "works": [{ "key": "/works/OL554685W" }],
+      "type": { "key": "/type/edition" },
+      "first_sentence": { "type": "/type/text", "value": "The fire crackled." },
+      "latest_revision": 13,
+      "revision": 13,
+      "created": {
+        "type": "/type/datetime",
+        "value": "2008-04-29T13:35:46.876380"
+      },
+      "last_modified": {
+        "type": "/type/datetime",
+        "value": "2022-06-08T16:06:24.972985"
+      }
+    }
+  }
+}
