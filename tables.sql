@@ -21,3 +21,6 @@ CREATE TABLE Reviews (
     rating SMALLINT NOT NULL CONSTRAINT Invalid_Rating CHECK (rating <=5 AND rating>=1),
     comment VARCHAR
 );
+
+
+-- test
