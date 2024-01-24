@@ -63,8 +63,12 @@ def login_required(f):
 
 
 @app.route("/")
+@login_required
 def index():
-    return render_template("index.html")
+    if True:  # Điều kiện của bạn ở đây
+        return render_template("search.html")
+    else:
+        return render_template("index.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -112,7 +116,17 @@ def register():
 
             # success - redirect to login
             db.commit()
-            return redirect(url_for("login"))
+            Q = db.execute(
+                text("SELECT * FROM users WHERE email LIKE :email"),
+                {"email": email},
+            ).fetchone()
+            print(Q.userid)
+            # Remember which user has logged in
+            session["user_id"] = Q.userid
+            session["email"] = Q.email
+            session["firstname"] = Q.firstname
+            session["logged_in"] = True
+            return redirect(url_for("search"))
 
 
 @app.route("/login", methods=["GET", "POST"])

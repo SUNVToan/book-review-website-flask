@@ -12,7 +12,9 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
-        <a class="navbar-brand" href="{{url_for("index")}}">Book Review</a>
+        {% if session.logged_in %}
+        <a class="navbar-brand" href="{{url_for("search")}}">Book Review</a>
+        {% endif %}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
