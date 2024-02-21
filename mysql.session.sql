@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS session;
+
+USE session;
+
+CREATE TABLE IF NOT EXISTS session (
+    id VARCHAR(255) NOT NULL,
+    data LONGBLOB NOT NULL,
+    PRIMARY KEY (id)
+)
+

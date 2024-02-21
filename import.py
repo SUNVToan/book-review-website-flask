@@ -2,7 +2,6 @@ import os, csv
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-# postgresql://postgres:toan123@localhost:5435/book_review_website_flask
 
 engine = create_engine(
     "postgresql://root:q8AiOgRQxlAzexLV9kPALYYc7Q4nm9Fa@dpg-cmo2jhmg1b2c73892edg-a.singapore-postgres.render.com/book_review_website_flask"
@@ -28,8 +27,6 @@ def main():
         )
 
     f.close()
-    # 0380795272,Krondor: The Betrayal,Raymond E. Feist,1998
-    # 1416949658,The Dark Is Rising,Susan Cooper,1973
 
 
 if __name__ == "__main__":

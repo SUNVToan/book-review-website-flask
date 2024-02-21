@@ -1,4 +1,4 @@
-import os, requests
+import os, requests, csv
 
 from flask import (
     Flask,
@@ -17,7 +17,6 @@ from sqlalchemy.sql import text
 from sqlalchemy.orm import scoped_session, sessionmaker
 from functools import wraps
 from werkzeug.security import check_password_hash, generate_password_hash
-
 from dotenv import load_dotenv  # add dotenv load environment
 
 load_dotenv()
@@ -42,7 +41,7 @@ Session(app)
 
 engine = create_engine(db_url)
 db = scoped_session(sessionmaker(bind=engine))
-key = api_key
+# key = api_key
 
 
 ## Helper
@@ -65,7 +64,7 @@ def login_required(f):
 @app.route("/")
 @login_required
 def index():
-    if True:  # Điều kiện của bạn ở đây
+    if True:
         return render_template("search.html")
     else:
         return render_template("index.html")
@@ -76,9 +75,7 @@ def register():
     # if GET, show the registration form
     if request.method == "GET":
         return render_template("register.html")
-
     # if POST, validate and commit to database
-
     else:
         # if form values are empty show error
         if not request.form.get("first_name"):
@@ -120,7 +117,7 @@ def register():
                 text("SELECT * FROM users WHERE email LIKE :email"),
                 {"email": email},
             ).fetchone()
-            print(Q.userid)
+            # print(Q.userid)
             # Remember which user has logged in
             session["user_id"] = Q.userid
             session["email"] = Q.email
@@ -205,6 +202,18 @@ def search():
         return render_template("list.html", result=result)
 
 
+# read file review1.csv
+def read_reviews_from_csv(filename):
+    reviews = []
+    with open(
+        filename, "r", newline="", encoding="utf-8"
+    ) as file:  # newline ensure not empty line
+        reader = csv.DictReader(file)  # read and create key-value
+        for row in reader:
+            reviews.append(row)
+    return reviews
+
+
 @app.route("/details/<int:bookid>", methods=["GET", "POST"])
 @login_required
 def details(bookid):
@@ -222,19 +231,23 @@ def details(bookid):
             )
         except Exception as e:
             return render_template("error.html", message=e)
+
         # Get 'works' key
         openlibrary_workskey = openlib_details.json()[f"ISBN:{result.isbn}"]["details"][
             "works"
         ][0]["key"]
+
         # Get ratings data
         openlibrary_ratings = requests.get(
             "https://openlibrary.org/" + openlibrary_workskey + "/ratings.json"
         )
+
         # get cover book
         openlib_data = requests.get(
             f"https://openlibrary.org/api/books?bibkeys=ISBN:{result.isbn}&jscmd=data&format=json"
         )
         cover = openlib_data.json()[f"ISBN:{result.isbn}"]["cover"]["medium"]
+
         # get descriptions
         try:
             openlib_descriptions = requests.get(
@@ -242,6 +255,7 @@ def details(bookid):
             ).json()["description"]["value"]
         except Exception as e:
             openlib_descriptions = "No descriptions"
+
         # Get comments particular to one book
         comment_list = db.execute(
             text(
@@ -252,14 +266,24 @@ def details(bookid):
         if not result:
             return render_template("error.html", message="Invalid book id")
 
+        # Đọc dữ liệu đánh giá từ file CSV
+        reviews_from_csv = read_reviews_from_csv("reviews1.csv")
+
+        rating = openlibrary_ratings.json()["summary"]["average"]
+        # data_dict = {"rating": rating}
+        # print(type(rating))
+        rating = round(rating, 2)
+
         return render_template(
             "details.html",
             result=result,
             comment_list=comment_list,
             bookid=bookid,
             openlib=openlibrary_ratings.json()["summary"],
+            rating=rating,
             cover=cover,
             descriptions=openlib_descriptions,
+            reviews_from_csv=reviews_from_csv,
         )
     else:
         ######## Check if the user commented on this particular book before ###########
@@ -273,6 +297,7 @@ def details(bookid):
             return render_template(
                 "error.html", message="You reviewed this book before!"
             )
+
         ######## Proceed to get user comment ###########
         user_comment = request.form.get("comments")
         user_rating = request.form.get("rating")
@@ -303,7 +328,7 @@ def details(bookid):
         return redirect(url_for("details", bookid=bookid))
 
 
-# Create app's API -- Phần này không hiểu làm gì cả
+# Create app's API
 @app.route("/api/<string:isbn>")
 @login_required
 def api(isbn):
@@ -341,5 +366,5 @@ def api(isbn):
 
 
 if __name__ == "__main__":
-    app.run()
     app.run(debug=True)
+    app.run()
