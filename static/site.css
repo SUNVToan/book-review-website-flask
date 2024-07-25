@@ -7,7 +7,9 @@
     background-size: cover;
   }
 }
-.login-form, .register-form, .list {
+.login-form,
+.register-form,
+.list {
   margin-top: 20%;
 }
 
@@ -24,4 +26,25 @@
   font-style: italic;
 }
 
+/* .navbar {
+  background-color: chocolate;
+} */
+
 /*# sourceMappingURL=site.css.map */
+
+.description-full {
+  display: none;
+}
+
+.description-summary {
+  -webkit-line-clamp: 3; /* show 3 line des*/
+  overflow: hidden; /*Ẩn phần nội dung vượt quá giới hạn */
+  white-space: nowrap; /* Ngăn chặn ngắt dòng */
+  text-overflow: ellipsis; /* Hiển thị dấu chấm elipsis (...) khi văn bản bị cắt */
+  cursor: pointer; /* Biến con trỏ thành dấu nhấp chuột */
+}
+
+/* Khi summary được mở, hiển thị nội dung đầy đủ */
+details[open] .description-full {
+  display: block;
+}

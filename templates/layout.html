@@ -10,16 +10,17 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="{{url_for("index")}}">Book Review</a>
+        {% if session.logged_in %}
+        <a class="navbar-brand" href="{{url_for('search')}}">Book Review</a>
+        {% endif %}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="#navbarNav">
           <ul class="navbar-nav ml-auto">
             {% if session.logged_in %}
-
             <li class="nav-item active">
               <h6 class="nav-link">Welcome, {{session.firstname}}</h6>
             </li>
@@ -27,19 +28,19 @@
               <a class="btn btn-outline-light btn-success mr-2" href="{{url_for('search')}}" role="button">Search</a>
             </li>
             <li class="nav-item">
-              <li><a href="{{url_for("logout")}}"><button class="btn btn-outline-light float-right" type="submit">Logout</button></a></li>
+              <li><a href="{{url_for('logout')}}"><button class="btn btn-outline-light float-right" type="submit">Logout</button></a></li>
             </li>
             {% else %}
             <li class="nav-item">
-              <a href="{{url_for("register")}}"><button class="btn btn-outline-light" type="submit">Sign Up</button></a>
+              <a href="{{url_for('register')}}"><button class="btn btn-outline-light" type="submit">Sign Up</button></a>
             </li>
             {% endif %}
           </ul>
         </div>
       </div>
     </nav>
-      {% block body %}
-      {% endblock %}
+    {% block body %}
+    {% endblock %}
 
       <!-- JavaScript components for Bootstrap -->
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
